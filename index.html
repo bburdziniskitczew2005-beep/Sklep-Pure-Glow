@@ -423,21 +423,18 @@
             closeCartModal(); 
         }
         
-        // FUNKCJE NEWSLETTERA
+        // FUNKCJE NEWSLETTERA - WERSJA TESTOWA (ZAWSZE POKAZUJE)
         function showNewsletter() {
-            // Sprawdza, czy modal był już pokazany w tej przeglądarce za pomocą localStorage
-            if (localStorage.getItem('newsletterShown') !== 'true') {
-                // Dodajemy minimalne opóźnienie i wymuszamy wyświetlenie
-                setTimeout(() => {
-                    document.getElementById('newsletter-modal').style.display = 'block';
-                }, 100); 
-            }
+            // USUNIĘTO localStorage - Newsletter będzie wyskakiwał przy każdym wejściu
+            
+            setTimeout(() => {
+                document.getElementById('newsletter-modal').style.display = 'block';
+            }, 100); 
         }
 
         function closeNewsletter() {
             document.getElementById('newsletter-modal').style.display = 'none';
-            // Zapisuje, że modal został pokazany
-            localStorage.setItem('newsletterShown', 'true');
+            // NIE ZAPISUJEMY W localStorage
         }
 
         window.onclick = function(event) {
