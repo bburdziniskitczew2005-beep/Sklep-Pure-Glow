@@ -7,13 +7,12 @@
     <style>
         /* CSS dla estetyki Pure Glow - naturalne kolory i premium (LIQUID GLASS) */
         :root {
-            /* Kolory Ciemnej Zieleni (Liquid Glass) */
-            --primary-color: #386641; /* Głęboka, ciemna zieleń (główny kolor sekcji) */
-            --secondary-color: #6A994E; /* Jaśniejsza zieleń (akcenty, ramki) */
-            --background-color: #F8F4E3; /* Jasny beż (pozostawiony do jasnych akcentów i cta) */
-            --text-color-dark: #383838; /* Ciemny tekst (używany na jasnym tle) */
-            --text-color-light: #F0F0F0; /* Jasny tekst (dla ciemnego tła sekcji) */
-            --accent-color: #DDA15E; /* Akcent (złoty/miodowy, kontrastujący z zielenią) */
+            --primary-color: #386641; 
+            --secondary-color: #6A994E; 
+            --background-color: #F8F4E3; 
+            --text-color-dark: #383838; 
+            --text-color-light: #F0F0F0; 
+            --accent-color: #DDA15E; 
             --font-family-header: 'serif'; 
             --font-family-body: 'sans-serif'; 
         }
@@ -26,7 +25,6 @@
             padding: 0;
             line-height: 1.6;
             
-            /* Tło liści */
             background-image: url('background_leaves.jpg'); 
             background-size: cover;
             background-attachment: fixed;
@@ -102,7 +100,6 @@
             padding: 5px 0;
         }
 
-        /* IKONA KOSZYKA Z LICZNIKIEM - KOREKTA WYRÓWNANIA */
         .cart-icon {
             font-size: 1.5em; 
             color: var(--text-color-light); 
@@ -124,7 +121,7 @@
             display: inline-block;
         }
         
-        /* ... POZOSTAŁE STYLE ZACHOWANE ... */
+        /* ... STYLE SEKCJI I PRODUKTÓW ... */
         .section {
             padding: 80px 50px;
             text-align: center;
@@ -209,7 +206,7 @@
         }
         
         .close-btn {
-            color: var(--text-color-light); /* Jasny dla ciemnego tła */
+            color: var(--text-color-light); 
             float: right;
             font-size: 28px;
             font-weight: bold;
@@ -430,10 +427,10 @@
         function showNewsletter() {
             // Sprawdza, czy modal był już pokazany w tej przeglądarce za pomocą localStorage
             if (localStorage.getItem('newsletterShown') !== 'true') {
-                // Małe opóźnienie, żeby strona załadowała się w pełni
+                // Dodajemy minimalne opóźnienie i wymuszamy wyświetlenie
                 setTimeout(() => {
                     document.getElementById('newsletter-modal').style.display = 'block';
-                }, 1000); 
+                }, 100); 
             }
         }
 
