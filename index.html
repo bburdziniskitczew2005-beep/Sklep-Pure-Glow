@@ -7,16 +7,15 @@
     <style>
         /* CSS dla estetyki Pure Glow - naturalne kolory i premium */
         :root {
-            --primary-color: #8B4513; /* Ciemny brąz (ziemia/czekolada) */
-            --secondary-color: #A0522D; /* Brąz/Taupe */
-            --background-color: #F8F4E3; /* Jasny beż/kremowy (kolor opakowania) */
-            --text-color: #383838; /* Ciemna szarość */
-            --accent-color: #4CAF50; /* Delikatna zieleń dla akcentów EKO */
+            --primary-color: #8B4513;
+            --secondary-color: #A0522D;
+            --background-color: #F8F4E3;
+            --text-color: #383838;
+            --accent-color: #4CAF50;
             --font-family-header: 'serif'; 
             --font-family-body: 'sans-serif'; 
         }
 
-        /* NAPRAWA: Zmieniam tło, by było widoczne, a sekcje były na jasnym tle */
         body {
             font-family: var(--font-family-body);
             color: var(--text-color);
@@ -24,7 +23,6 @@
             padding: 0;
             line-height: 1.6;
             
-            /* NOWE TŁO LIŚCI I EFEKT PRZYCIEMNIENIA */
             background-image: url('background_leaves.jpg'); 
             background-size: cover;
             background-attachment: fixed;
@@ -32,7 +30,6 @@
             position: relative;
         }
 
-        /* Nakładka przyciemniająca tło dla lepszej czytelności */
         body::before {
             content: "";
             position: fixed;
@@ -40,18 +37,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* 40% czarna nakładka */
+            background-color: rgba(0, 0, 0, 0.4); 
             z-index: -1;
         }
 
-        /* NAGŁÓWEK I SEKCJE - Pełne krycie, by napisy nie zlewały się z tłem */
         header, .section, footer, .modal-content, .product-card {
             background-color: var(--background-color); 
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            /* Resetowanie przezroczystości, by tekst był czytelny */
         }
         
-        /* NAGŁÓWEK I NAWIGACJA */
         header {
             padding: 20px 50px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -63,7 +57,6 @@
             z-index: 500;
         }
 
-        /* NAPRAWA 1: Zmiana tekstu logo */
         .logo {
             font-family: var(--font-family-header);
             font-size: 2.5em;
@@ -77,7 +70,6 @@
             margin-top: -10px;
         }
 
-        /* Poprawka skalowania koszyka: Użycie Flexbox do wyrównania */
         nav {
             display: flex;
             align-items: center; 
@@ -93,9 +85,8 @@
             padding: 5px 0;
         }
 
-        /* IKONA KOSZYKA W NAGŁÓWKU */
         .cart-icon {
-            font-size: 1.5em; /* Zapewnia widoczność emotki 🛒 */
+            font-size: 1.5em;
             color: var(--primary-color);
             cursor: pointer;
             position: relative;
@@ -114,27 +105,171 @@
             margin-left: 5px;
         }
 
-        /* ... POZOSTAŁE STYLE (MODALE, PRODUKTY) SĄ ZACHOWANE ... */
-        
-        /* SEKCJA STRONY GŁÓWNEJ */
         .section {
             padding: 80px 50px;
             text-align: center;
             min-height: 70vh;
         }
 
-        /* NAPRAWA 2: Wyśrodkowanie sloganu i ograniczenie jego szerokości */
         .main-slogan {
             font-family: var(--font-family-header);
             font-size: 2.8em;
             color: var(--primary-color);
             max-width: 800px;
             line-height: 1.3;
-            margin: 0 auto 40px auto; /* Centrowanie elementu blokowego */
-            text-align: center; /* Centrowanie tekstu w elemencie */
+            margin: 0 auto 40px auto; 
+            text-align: center; 
+        }
+
+        .cta-button, .checkout-btn {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
         }
         
-        /* ... POZOSTAŁE STYLE ... */
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* Zmniejszona przerwa */
+            margin-top: 50px;
+        }
+        
+        /* NAPRAWA 1: Zmniejszenie rozmiaru kart produktu */
+        .product-card {
+            padding: 20px; /* Mniejszy padding */
+            border: 1px solid #DCDCDC;
+            width: 250px; /* Zmniejszona szerokość */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: auto;
+            max-height: 200px; /* Zmniejszona maksymalna wysokość obrazka */
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-size: 1.5em;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        /* ... POZOSTAŁE STYLE (MODALE, FOOTER) ... */
+        
+        footer {
+            color: var(--background-color);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            background-color: var(--primary-color);
+        }
+        
+        /* MODAL KOSZYKA (styl dla czytelności) */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+        }
+
+        .modal-content {
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid var(--secondary-color);
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .close-btn {
+            color: var(--text-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        /* NEWSLETTER POP-UP */
+        #newsletter-modal {
+            z-index: 1001; 
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+        
+        #newsletter-content {
+            background-color: var(--background-color);
+            margin: 15% auto;
+            padding: 40px;
+            border: 3px solid var(--primary-color);
+            width: 80%;
+            max-width: 450px;
+        }
+        
+        #newsletter-content h2 {
+            color: var(--primary-color);
+            font-family: var(--font-family-header);
+            font-size: 2em;
+        }
+
+        .discount-code {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            margin: 15px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .modal-close-small {
+            color: var(--secondary-color);
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* O NAS (CECHY) */
+        .features {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+        
+        .features li {
+            text-align: left;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .features li::before {
+            content: '🌿';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+
     </style>
 </head>
 <body onload="showNewsletter()">
@@ -223,64 +358,25 @@
     </main>
     
     <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCartModal()">&times;</span>
+            <h2>Twój Koszyk</h2>
+            <ul id="cart-items"></ul>
+            <p><strong>Łączna wartość: <span id="cart-total">0.00</span> zł</strong></p>
+            <button class="checkout-btn" onclick="alert('Przechodzisz do finalizacji zamówienia! (Tutaj nastąpiłaby przekierowanie na stronę płatności).')">
+                Przejdź do kasy
+            </button>
+            <button class="checkout-btn" style="background-color: #A0522D;" onclick="clearCart()">
+                Opróżnij koszyk
+            </button>
         </div>
+    </div>
 
     <div id="newsletter-modal" class="modal">
-        </div>
-
-    <footer>
-        &copy; 2025 Pure Glow. Wszystkie prawa zastrzeżone. | Pielęgnacja w harmonii z naturą.
-    </footer>
-
-    <script>
-        // ... Kod JavaScript z funkcjami koszyka i newslettera - jest on identyczny jak w poprzedniej wersji ...
-        let cart = [];
-
-        function addToCart(name, price) {
-            cart.push({ name: name, price: price });
-            updateCartDisplay();
-            openCartModal(); 
-        }
-
-        function updateCartDisplay() {
-            const list = document.getElementById('cart-items');
-            const count = document.getElementById('cart-count');
-            const totalElement = document.getElementById('cart-total');
-            let total = 0;
-
-            list.innerHTML = ''; 
-
-            cart.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = `${item.name} - ${item.price.toFixed(2)} zł`;
-                list.appendChild(li);
-                total += item.price;
-            });
-
-            count.textContent = cart.length;
-            totalElement.textContent = total.toFixed(2);
-
-            if (cart.length === 0) {
-                 const li = document.createElement('li');
-                 li.textContent = 'Twój koszyk jest pusty.';
-                 list.appendChild(li);
-            }
-        }
-
-        function openCartModal() {
-            document.getElementById('cart-modal').style.display = 'block';
-        }
-
-        function closeCartModal() {
-            document.getElementById('cart-modal').style.display = 'none';
-        }
-
-        function clearCart() {
-            cart = [];
-            updateCartDisplay();
-            closeCartModal();
-        }
-        
-        function showNewsletter() {
-            if (localStorage.getItem('newsletterShown') !== 'true') {
-                document.getElementById('newsletter-modal').style.display = 'block';
+        <div id="newsletter-content">
+            <span class="modal-close-small" onclick="closeNewsletter()">&times;</span>
+            <h2>Odbierz 20% Rabatu!</h2>
+            <p>Zapisz się do newslettera Pure Glow i otrzymaj natychmiastowy rabat na swoje pierwsze zamówienie.</p>
+            <div class="discount-code">RABAT20</div>
+            <form onsubmit="event.preventDefault(); alert('Dziękujemy za zapis! Kod RABAT20 został wysłany na Twój email.'); closeNewsletter();">
+                <input type="email" placeholder="Twój email" required style="padding: 10px; width: 80%; border: 1px solid var(--secondary-color); margin-bottom: 10px
