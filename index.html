@@ -109,26 +109,22 @@
             cursor: pointer;
             position: relative;
             margin-left: 30px; 
-            /* Używamy flex dla precyzyjnego wyrównania koszyka z licznikiem */
             display: flex; 
-            align-items: center; /* Wyrównuje koszyk i licznik w linii */
+            align-items: center; 
         }
         
         .cart-count {
-            /* Zmieniamy pozycjonowanie na względne lub usuwamy, 
-               gdyż flexbox już wyrównuje elementy */
             background-color: var(--accent-color); 
             color: var(--text-color-dark); 
             border-radius: 50%;
-            padding: 2px 6px; /* Mniejszy padding dla lepszego wyglądu licznika */
+            padding: 2px 6px; 
             font-size: 0.6em; 
             font-weight: bold;
-            margin-left: 5px; /* Odsuwamy licznik od koszyka */
-            /* Zapewniamy, że licznik ma właściwości inline-block */
+            margin-left: 5px; 
             display: inline-block;
         }
         
-        /* ... POZOSTAŁE STYLE (SEKCJE, CTA, PRODUKTY) ZACHOWANE ... */
+        /* ... POZOSTAŁE STYLE ZACHOWANE ... */
         .section {
             padding: 80px 50px;
             text-align: center;
@@ -202,6 +198,24 @@
             background-color: rgba(0, 0, 0, 0.6); 
         }
         
+        .modal-content {
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid var(--secondary-color);
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .close-btn {
+            color: var(--text-color-light); /* Jasny dla ciemnego tła */
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         /* NEWSLETTER POP-UP */
         #newsletter-modal {
             z-index: 1001; 
@@ -210,11 +224,14 @@
         }
         
         #newsletter-content {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
             margin: 15% auto;
             padding: 40px;
             border: 3px solid var(--secondary-color);
             width: 80%;
             max-width: 450px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
         }
         
         #newsletter-content h2 {
@@ -405,13 +422,18 @@
         function clearCart() {
             cart = [];
             updateCartDisplay();
+            alert('Koszyk został opróżniony.');
+            closeCartModal(); 
         }
         
         // FUNKCJE NEWSLETTERA
         function showNewsletter() {
-            // Sprawdza, czy modal był już pokazany w tej przeglądarce
+            // Sprawdza, czy modal był już pokazany w tej przeglądarce za pomocą localStorage
             if (localStorage.getItem('newsletterShown') !== 'true') {
-                document.getElementById('newsletter-modal').style.display = 'block';
+                // Małe opóźnienie, żeby strona załadowała się w pełni
+                setTimeout(() => {
+                    document.getElementById('newsletter-modal').style.display = 'block';
+                }, 1000); 
             }
         }
 
@@ -425,18 +447,17 @@
             const cartModal = document.getElementById('cart-modal');
             const newsletterModal = document.getElementById('newsletter-modal');
 
-            // Zamyka koszyk
+            // Zamyka koszyk po kliknięciu poza
             if (event.target === cartModal) {
                 closeCartModal();
             }
-            // Zamyka newsletter
+            // Zamyka newsletter po kliknięciu poza
             if (event.target === newsletterModal) {
                 closeNewsletter();
             }
         }
         
-        // Musimy upewnić się, że koszyk jest poprawnie inicjalizowany przy ładowaniu strony
         updateCartDisplay();
     </script>
 </body>
-</html
+</html>
