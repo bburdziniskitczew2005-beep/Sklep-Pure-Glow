@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pure Glow - Luksusowa Pielęgnacja Skóry</title>
     <style>
-        /* CSS dla estetyki Pure Glow - naturalne kolory i premium */
+        /* CSS dla estetyki Pure Glow - naturalne kolory i premium (LIQUID GLASS) */
         :root {
-            /* Zmiana: Ciemna zieleń zamiast beżu */
-            --primary-color: #386641; /* Głęboka, ciemna zieleń (główny kolor tła sekcji) */
-            --secondary-color: #6A994E; /* Jaśniejsza zieleń (akcenty, linki) */
+            /* Kolory Ciemnej Zieleni (Liquid Glass) */
+            --primary-color: #386641; /* Głęboka, ciemna zieleń (główny kolor sekcji) */
+            --secondary-color: #6A994E; /* Jaśniejsza zieleń (akcenty, ramki) */
             --background-color: #F8F4E3; /* Jasny beż (pozostawiony do jasnych akcentów i cta) */
             --text-color-dark: #383838; /* Ciemny tekst (używany na jasnym tle) */
             --text-color-light: #F0F0F0; /* Jasny tekst (dla ciemnego tła sekcji) */
@@ -21,7 +21,7 @@
         /* Ustawienie tła: Ciemne Liście z Liquid Glass */
         body {
             font-family: var(--font-family-body);
-            color: var(--text-color-light); /* Domyślny tekst BODY (na ciemnym tle) jest jasny */
+            color: var(--text-color-light); 
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -34,7 +34,7 @@
             position: relative;
         }
 
-        /* Nakładka przyciemniająca tło dla lepszej czytelności */
+        /* Nakładka przyciemniająca tło dla Liquid Glass */
         body::before {
             content: "";
             position: fixed;
@@ -46,17 +46,17 @@
             z-index: -1;
         }
 
-        /* GŁÓWNE KONTENERY - Zmienione na Ciemną Zieleń */
-        header, .section, .product-card, .modal-content {
-            background-color: var(--primary-color); /* Ciemna zieleń */
-            color: var(--text-color-light); /* Jasny tekst na ciemnym tle */
+        /* GŁÓWNE KONTENERY - Ciemna Zieleń */
+        header, .section, .product-card, .modal-content, #newsletter-content {
+            background-color: var(--primary-color); 
+            color: var(--text-color-light); 
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             border: 1px solid var(--secondary-color);
         }
         
-        /* FOOTER - dla kontrastu zostawiam ciemniejszy (lub dostosowuję) */
+        /* FOOTER */
         footer {
-            background-color: #1E4D2C; /* Jeszcze ciemniejsza zieleń/prawie czarny */
+            background-color: #1E4D2C;
             color: var(--text-color-light);
             text-align: center;
             padding: 20px;
@@ -77,13 +77,13 @@
         .logo {
             font-family: var(--font-family-header);
             font-size: 2.5em;
-            color: var(--text-color-light); /* Jasny tekst */
+            color: var(--text-color-light); 
             font-weight: bold;
         }
         
         .tagline-nav {
             font-size: 0.8em;
-            color: var(--secondary-color); /* Jaśniejsza zieleń */
+            color: var(--secondary-color); 
             margin-top: -10px;
         }
 
@@ -93,7 +93,7 @@
         }
         
         nav a {
-            color: var(--text-color-light); /* Jasne linki */
+            color: var(--text-color-light); 
             text-decoration: none;
             margin-left: 25px;
             font-weight: 600;
@@ -102,27 +102,33 @@
             padding: 5px 0;
         }
 
-        /* IKONA KOSZYKA */
+        /* IKONA KOSZYKA Z LICZNIKIEM - KOREKTA WYRÓWNANIA */
         .cart-icon {
             font-size: 1.5em; 
-            color: var(--text-color-light); /* Jasna ikona */
+            color: var(--text-color-light); 
             cursor: pointer;
             position: relative;
             margin-left: 30px; 
+            /* Używamy flex dla precyzyjnego wyrównania koszyka z licznikiem */
             display: flex; 
-            align-items: center;
+            align-items: center; /* Wyrównuje koszyk i licznik w linii */
         }
         
         .cart-count {
-            font-size: 0.6em; 
-            background-color: var(--accent-color); /* Złoty akcent */
-            color: var(--text-color-dark); /* Ciemny tekst na złotym */
+            /* Zmieniamy pozycjonowanie na względne lub usuwamy, 
+               gdyż flexbox już wyrównuje elementy */
+            background-color: var(--accent-color); 
+            color: var(--text-color-dark); 
             border-radius: 50%;
-            padding: 3px 6px;
+            padding: 2px 6px; /* Mniejszy padding dla lepszego wyglądu licznika */
+            font-size: 0.6em; 
             font-weight: bold;
-            margin-left: 5px;
+            margin-left: 5px; /* Odsuwamy licznik od koszyka */
+            /* Zapewniamy, że licznik ma właściwości inline-block */
+            display: inline-block;
         }
-
+        
+        /* ... POZOSTAŁE STYLE (SEKCJE, CTA, PRODUKTY) ZACHOWANE ... */
         .section {
             padding: 80px 50px;
             text-align: center;
@@ -132,16 +138,16 @@
         .main-slogan {
             font-family: var(--font-family-header);
             font-size: 2.8em;
-            color: var(--text-color-light); /* Jasny tekst na ciemnym tle */
+            color: var(--text-color-light);
             max-width: 800px;
             line-height: 1.3;
             margin: 0 auto 40px auto; 
             text-align: center; 
         }
-
+        
         .cta-button, .checkout-btn {
-            background-color: var(--accent-color); /* Akcent - Złoty */
-            color: var(--text-color-dark); /* Ciemny tekst na złotym tle */
+            background-color: var(--accent-color); 
+            color: var(--text-color-dark); 
             padding: 10px 20px;
             text-decoration: none;
             text-transform: uppercase;
@@ -161,7 +167,7 @@
         }
         
         .product-card {
-            background-color: var(--primary-color); /* Ciemna zieleń */
+            background-color: var(--primary-color);
             padding: 20px; 
             border: 1px solid var(--secondary-color);
             width: 250px; 
@@ -179,17 +185,31 @@
         
         .price {
             font-size: 1.5em;
-            color: var(--accent-color); /* Złota cena */
+            color: var(--accent-color); 
             font-weight: bold;
             margin: 10px 0;
         }
-        
-        /* ... STYLE MODALI I INNYCH SEKCJI ... */
 
+        /* STYLI MODALI */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+        }
+        
         /* NEWSLETTER POP-UP */
+        #newsletter-modal {
+            z-index: 1001; 
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+        
         #newsletter-content {
-            background-color: var(--primary-color); /* Ciemna zieleń */
-            color: var(--text-color-light);
             margin: 15% auto;
             padding: 40px;
             border: 3px solid var(--secondary-color);
@@ -202,7 +222,7 @@
             font-family: var(--font-family-header);
             font-size: 2em;
         }
-        
+
         .discount-code {
             display: inline-block;
             background-color: var(--accent-color);
@@ -212,7 +232,7 @@
             font-size: 1.2em;
             font-weight: bold;
         }
-        
+
         .modal-close-small {
             color: var(--secondary-color);
             float: right;
@@ -220,14 +240,7 @@
             font-weight: bold;
             cursor: pointer;
         }
-        
-        .features li::before {
-            content: '🌿';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color); /* Złoty akcent */
-            font-size: 1.2em;
-        }
+
     </style>
 </head>
 <body onload="showNewsletter()">
@@ -299,16 +312,13 @@
             <h3 style="margin-top: 50px;">Regulamin Sklepu (Skrócony)</h3>
             <div class="regulations" style="text-align: left; max-width: 600px; margin: 0 auto;">
                 <p>
-                    <strong>1. Zamówienia:</strong> Wszystkie zamówienia są realizowane w ciągu 2-3 dni roboczych od zaksięgowania płatności. W przypadku braku towaru w magazynie, klient zostanie niezwłocznie poinformowany.
+                    <strong>1. Zamówienia:</strong> Wszystkie zamówienia są realizowane w ciągu 2-3 dni roboczych od zaksięgowania płatności.
                 </p>
                 <p>
-                    <strong>2. Dostawa:</strong> Dostawa odbywa się za pośrednictwem kuriera. Koszty wysyłki są kalkulowane automatycznie na etapie składania zamówienia. Zapewniamy opakowania w 100% ekologiczne.
+                    <strong>2. Zwroty:</strong> Klient ma prawo odstąpić od umowy w terminie 14 dni od otrzymania towaru. Produkty muszą być nieużywane.
                 </p>
                 <p>
-                    <strong>3. Zwroty:</strong> Klient ma prawo odstąpić od umowy w terminie 14 dni od otrzymania towaru bez podania przyczyny. Produkty muszą być nieużywane i w oryginalnym opakowaniu. Koszt zwrotu ponosi kupujący.
-                </p>
-                <p>
-                    <strong>4. Płatności:</strong> Akceptujemy płatności przelewem tradycyjnym oraz płatności online. Ceny podane na stronie są cenami brutto.
+                    <strong>3. Płatności:</strong> Akceptujemy płatności online. Ceny podane na stronie są cenami brutto.
                 </p>
             </div>
         </section>
@@ -319,7 +329,8 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeCartModal()">&times;</span>
             <h2>Twój Koszyk</h2>
-            <ul id="cart-items"></ul>
+            <ul id="cart-items">
+            </ul>
             <p><strong>Łączna wartość: <span id="cart-total">0.00</span> zł</strong></p>
             <button class="checkout-btn" onclick="alert('Przechodzisz do finalizacji zamówienia! (Tutaj nastąpiłaby przekierowanie na stronę płatności).')">
                 Przejdź do kasy
@@ -337,7 +348,7 @@
             <p>Zapisz się do newslettera Pure Glow i otrzymaj natychmiastowy rabat na swoje pierwsze zamówienie.</p>
             <div class="discount-code">RABAT20</div>
             <form onsubmit="event.preventDefault(); alert('Dziękujemy za zapis! Kod RABAT20 został wysłany na Twój email.'); closeNewsletter();">
-                <input type="email" placeholder="Twój email" required style="padding: 10px; width: 80%; border: 1px solid var(--secondary-color); margin-bottom: 10px;">
+                <input type="email" placeholder="Twój email" required style="padding: 10px; width: 80%; border: 1px solid var(--secondary-color); margin-bottom: 10px; color: var(--text-color-dark);">
                 <button type="submit" class="cta-button" style="width: 80%; display: block; margin: 0 auto;">Zapisz się</button>
             </form>
             <p style="margin-top: 20px;"><small>Oferta ważna tylko przy pierwszym zakupie.</small></p>
@@ -396,7 +407,9 @@
             updateCartDisplay();
         }
         
+        // FUNKCJE NEWSLETTERA
         function showNewsletter() {
+            // Sprawdza, czy modal był już pokazany w tej przeglądarce
             if (localStorage.getItem('newsletterShown') !== 'true') {
                 document.getElementById('newsletter-modal').style.display = 'block';
             }
@@ -404,16 +417,26 @@
 
         function closeNewsletter() {
             document.getElementById('newsletter-modal').style.display = 'none';
+            // Zapisuje, że modal został pokazany
             localStorage.setItem('newsletterShown', 'true');
         }
 
         window.onclick = function(event) {
             const cartModal = document.getElementById('cart-modal');
             const newsletterModal = document.getElementById('newsletter-modal');
+
+            // Zamyka koszyk
             if (event.target === cartModal) {
                 closeCartModal();
             }
+            // Zamyka newsletter
             if (event.target === newsletterModal) {
                 closeNewsletter();
             }
         }
+        
+        // Musimy upewnić się, że koszyk jest poprawnie inicjalizowany przy ładowaniu strony
+        updateCartDisplay();
+    </script>
+</body>
+</html
